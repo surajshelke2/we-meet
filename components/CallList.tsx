@@ -108,7 +108,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
               key={(meet as Call).id || (meet as CallRecording).url}
               icon={icon}
               title={
-                meet.state?.custom.description?.substring(0, 20) || "No Description"
+                meet.state?.custom.description?.substring(0, 20) || "Personal Meeting Room"
               }
               date={formattedDate}
               isPreviousMeeting={type === "ended"}

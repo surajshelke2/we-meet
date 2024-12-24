@@ -19,6 +19,7 @@ const MeetingTypeList = () => {
   const [values, setValues] = useState({
     dateTime: new Date(),
     description: "",
+    link: "",
   });
 
   const [callDetails, setCallDetails] = useState<Call | null>(null);
@@ -88,7 +89,7 @@ const MeetingTypeList = () => {
         img="/icons/recordings.svg"
         title="View Recordings"
         description="Check out your recordings"
-        handleClick={() => setMeetingState("isJoiningMeeting")}
+        handleClick={() => router.push("/recordings")}
         className="bg-purple-1"
       />
       <HomeCard
@@ -166,6 +167,23 @@ const MeetingTypeList = () => {
         buttonText="Start Meeting"
         handleClick={createMeeting}
       />
+
+<MeetingModel
+        isOpen={meetingState === "isJoiningMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Type the Meeting ID"
+        className="text-center"
+        buttonText="Join Meeting"
+        handleClick={()=>router.push(values.link)}
+      >
+        <input
+          type="text"
+          placeholder="Meeting ID"
+          className="w-full p-2 rounded bg-dark-2 focus:outline-none"
+          onChange={(e) => setValues({ ...values, link: e.target.value })}
+        />
+        
+      </MeetingModel>
     </section>
   );
 };
