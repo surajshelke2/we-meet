@@ -99,6 +99,9 @@ const MeetingTypeList = () => {
         className="bg-yellow-1"
       />
 
+
+      {/* this model are creaed for the meeting  to diplay the dailog boxes */ }
+
       {!callDetails ? (
         <MeetingModel
           isOpen={meetingState === "isScheduleMeeting"}

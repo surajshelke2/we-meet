@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -35,9 +35,12 @@ const MeetingModel = ({
             <Image src={image} alt="image" width={72} height={72} />
           </div>
         )}
-        <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
-          {title}
-        </h1>
+        {/* Add DialogTitle for accessibility */}
+        <DialogTitle asChild>
+          <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
+            {title}
+          </h1>
+        </DialogTitle>
         {children}
         <Button
           className="bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0"

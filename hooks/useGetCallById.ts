@@ -8,19 +8,28 @@ export const useGetCallById = (id: string | string[]) => {
   const client = useStreamVideoClient();
 
   useEffect(() => {
-    if (!client || !id) {
+    if (!client || !id || (Array.isArray(id) && id.length === 0)) {
+      console.error("Client or id not found");
       setIsCallingLoading(false);
       return;
     }
 
     const loadCall = async () => {
+      setIsCallingLoading(true);
       try {
+        const filter_conditions = Array.isArray(id)
+          ? { id: { $in: id } }
+          : { id };
+
         const { calls } = await client.queryCalls({
-          filter_conditions: { id },
+          filter_conditions,
         });
 
         if (calls.length > 0) {
           setCall(calls[0]);
+        }
+        else{
+          console.warn("No call found with id:", id);
         }
       } catch (error) {
         console.error("Error fetching call:", error);
