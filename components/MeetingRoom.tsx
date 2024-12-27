@@ -20,10 +20,10 @@ import {
 
 import React, { useState } from "react";
 import { LayoutList, User } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./Loader";
-import { useRouter } from "next/router";
+
 
 
 type CallLayout = "grid" | "speaker-left" | "speaker-right";
