@@ -29,6 +29,7 @@ export const useGetCalls = () => {
         });
 
         setCalls(calls);
+       
       } catch (error) {
         console.log(error);
       } finally {
