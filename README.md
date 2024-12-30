@@ -1,4 +1,4 @@
-# Project Name: EduFocus
+# Project Name: We Meet
 
 ## Overview
 **EduFocus** is a Next.js-based web application that enables educators to conduct interactive meetings with students, monitor their focus levels, and analyze their understanding using chat analysis. This project integrates with **Stream.io** for chat functionalities and **Clerk** for user authentication.
